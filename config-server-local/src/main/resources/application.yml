@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: config-server-local
+  cloud:
+    config:
+      server:
+        git:
+          search-paths: classpath:/config
+  profiles:
+    active: native
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info
+
+# eureka 注册中心配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

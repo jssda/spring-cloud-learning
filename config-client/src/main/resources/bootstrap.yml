@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: config-client
+
+  cloud:
+    config:
+      label: master
+      profile: dev
+      # uri: http://localhost:8080/
+      discovery:
+        enabled: true
+        service-id: config-server-local
+      # name: Bonc-Chain-SDK, Chain-Address, Chain-Config, Datasource-Config, Redis-Config
+
+server:
+  port: 8081
+
+# eureka 注册中心配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

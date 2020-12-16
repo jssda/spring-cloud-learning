@@ -1,0 +1,13 @@
+contract:
+  address:
+    auditService: "0x6dd2e5890d131da8e54530742ff0b2e95138cc44"
+    datasourceService: "0x8a80c5a057026a2b522ed0e76bcbe68046260e27"
+    directoryOpt: "0xbf4df4d10c155f429a908605520c206cfcdedc10"
+    deptService: "0x48207fb75d3ad9229100ca0e9fa790413078a77c"
+    coinDataAddress: "0x431ed3a96152c144d41b7716b7d374258805ba5f"
+    idUtilsAddress: "0x38c856a1006505ebf637b108b64010becc47be82"
+    resDirectoryService: "0xaa7eeda2ad83188751cae23c32bf038bba34afc8"
+
+
+coin-data-address: "0x53124eab0f04c32cb5bba941ca7695f916067156"
+coin-server-address: "0x7c3462ca51e8d6b1786229a93d43efbe702158b0"

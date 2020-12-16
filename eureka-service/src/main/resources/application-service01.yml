@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: spring-cloud-eureka-service
+server:
+  port: 8761
+eureka:
+  client:
+    serviceUrl:
+      # 设置与Eureka Server交互的地址, 多个地址可使用','分隔。
+      defaultZone: http://eurekaservice02:8762
+  instance:
+    hostname: eurekaservice01

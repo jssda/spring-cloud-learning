@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          # 仓库地址
+          uri: https://code.bonc.com.cn/wangjingjing/spring-cloud-conifg.git
+          # 文件在仓库中的路径
+          search-paths: respo
+          # 访问仓库用户名
+          username: wangjingjing
+          # 访问仓库密码
+          password: 1624022009.a
+      # 仓库分支
+      label: master
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info

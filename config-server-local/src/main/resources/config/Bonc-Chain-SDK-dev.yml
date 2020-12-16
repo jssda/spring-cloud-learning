@@ -1,0 +1,96 @@
+spring:
+  application:
+    name: Bonc-Chain-SDK
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.16.18.116:3306/bonc-chain?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    username: "test"
+    password: "123456"
+  #    driver-class-name: com.mysql.jdbc.Driver
+  #    url: jdbc:mysql://140.210.91.66:33216/bonc-chain?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+  #    username: "root"
+  #    password: "Root.123"
+
+  jpa:
+    show-sql: true
+
+  #Json转换从前台接收格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    database: 0
+    host: 172.16.18.116
+    port: 6379
+    timeout: 100000
+    lettuce:
+      pool:
+        max-active: 1000  # 连接池最大连接数
+        max-idle: 10      # 连接池最大空闲连接
+        min-idle: 5       # 连接池最小空闲连接
+        max-wait: -1ms    # 连接池最大阻塞时间
+
+server:
+  port: 8082
+
+#eureka相关配置
+#eureka:
+#  instance:
+#    lease-expiration-duration-in-seconds: 30
+#    lease-renewal-interval-in-seconds: 10
+#
+#  client:
+#    serviceUrl:
+#      defaultZone: http://manager-registry-service:8761/eureka/
+
+#redis相关配置
+redisconfig:
+  redisAddress: 172.16.18.116
+  redisAuth:
+  heartbeatExpire: 180
+  checkSsrc: false
+
+
+#fisco相关配置
+encrypt-type: # 0:standard, 1:guomi
+  encrypt-type: 0
+
+certPath: 'classpath:'
+#certPath: file:D:/tmp/
+
+group-channel-connections-config:
+  caCert: ${certPath}ca.crt
+  sslCert: ${certPath}sdk.crt
+  sslKey: ${certPath}sdk.key
+  all-channel-connections:
+    - group-id: 1 #group ID
+      connections-str:
+        - 172.16.18.116:20200
+#        - 10.0.0.22:20200 # node listen_ip:channel_listen_port
+#        - 10.0.0.22:20201
+#        - 10.0.0.22:20202
+#        - 10.0.0.22:20203
+#        - 127.0.0.1:20201
+
+channel-service:
+  group-id: 1 # The specified group to which the SDK connects
+  agency-name: fisco # agency name
+
+accounts:
+  pem-file: 0xcdcce60801c0a2e6bb534322c32ae528b9dec8d2.pem
+  p12-file: 0x98333491efac02f8ce109b0c499074d47e7779a6.p12
+  password: 123456
+
+swagger:
+  enable:
+    false
+password:
+  default:
+    Aa123456
+
+
+
+logging:
+  level:
+    root: info
+    com.bonc.boncchainrest: debug

@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: Bonc-Chain-Coin
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://172.16.18.116:3306/chain-backups?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    username: "test"
+    password: "123456"
+server:
+  port: 8081
+# If you use SLF4J. First, you need to tell log4jdbc-log4j2 that you want to use the SLF4J logger
+log4jdbc.spylogdelegator.name: .sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
+
+#fisco相关配置
+encrypt-type: # 0:standard, 1:guomi
+  encrypt-type: 0
+
+group-channel-connections-config:
+  caCert: classpath:ca.crt
+  sslCert: classpath:sdk.crt
+  sslKey: classpath:sdk.key
+  all-channel-connections:
+    - group-id: 1 #group ID
+      connections-str:
+ #       - 10.0.0.22:20200
+  ##      - 10.0.0.22:20201
+  #      - 10.0.0.22:20202
+  #      - 10.0.0.22:20203
+        - 172.16.18.116:20200 # node listen_ip:channel_listen_port
+        - 172.16.18.168:20200
+        - 172.16.18.167:20200
+  #      - 172.16.18.175:20200
+#        - 127.0.0.1:20201
+
+channel-service:
+  group-id: 1 # The specified group to which the SDK connects
+  agency-name: fisco # agency name
+
+accounts:
+  pem-file: 0xcdcce60801c0a2e6bb534322c32ae528b9dec8d2.pem
+  p12-file: 0x98333491efac02f8ce109b0c499074d47e7779a6.p12
+  password: 123456
+
+
+
+#redis相关配置
+redisconfig:
+  redisAddress: 172.16.18.116
+  redisAuth :
+  heartbeatExpire: 180
+  checkSsrc: false
+
+
+test: ok test ok
+#spring.jackson.date-format: yyyy-MM-dd HH:mm:ss
+#spring.jackson.time-zone: GMT+8
